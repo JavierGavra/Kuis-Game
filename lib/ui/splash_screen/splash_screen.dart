@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kuis_game/common/app_color.dart';
+import 'package:kuis_game/common/color.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -8,11 +8,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Container(
-          height: 50,
-          width: 50,
-          color: AppColor.white,
-        ),
+        child: Container(height: 50, width: 50, color: AppColor.white),
       ),
     );
   }

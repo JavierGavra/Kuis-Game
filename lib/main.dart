@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kuis_game/common/app_theme.dart';
-import 'package:kuis_game/ui/home/home.dart';
+import 'package:kuis_game/common/theme.dart';
+import 'package:kuis_game/ui/home/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,14 +11,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(375, 812),
-      builder: (context, child) => MaterialApp(
-        title: 'Flutter Demo',
-        debugShowCheckedModeBanner: false,
-        theme: AppTheme.getTheme(),
-        home: const HomePage(),
-      ),
+    return MaterialApp(
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.getTheme(),
+      home: const HomePage(),
     );
   }
 }
