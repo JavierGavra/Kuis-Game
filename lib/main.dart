@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kuis_game/common/theme.dart';
+import 'package:kuis_game/config/theme/theme.dart';
 import 'package:kuis_game/ui/home/home_page.dart';
 
 void main() {

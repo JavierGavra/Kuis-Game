@@ -1,29 +1,35 @@
 import 'package:flutter/material.dart';
 
-class Button3D extends StatefulWidget {
-  const Button3D({
+class WidgetTest extends StatefulWidget {
+  const WidgetTest({
     super.key,
     this.foregroundColor = const [Color(0xffFFA51D), Color(0xffFFBF5D)],
     this.backgroundColor = const Color(0xffFFA51D),
     this.focusedColor = const Color(0xffFFBF5D),
-    required this.padding,
+    this.padding,
     required this.onTap,
     required this.child,
     this.borderRadius,
+    this.elevation = 4,
+    this.height,
+    this.width,
   });
-  final BorderRadiusGeometry? borderRadius;
   final List<Color> foregroundColor;
-  final EdgeInsetsGeometry padding;
   final Color backgroundColor;
   final Color focusedColor;
+  final EdgeInsetsGeometry? padding;
   final Function() onTap;
   final Widget child;
+  final BorderRadiusGeometry? borderRadius;
+  final int elevation;
+  final double? height;
+  final double? width;
 
   @override
-  State<Button3D> createState() => _Button3DState();
+  State<WidgetTest> createState() => _WidgetTestState();
 }
 
-class _Button3DState extends State<Button3D> {
+class _WidgetTestState extends State<WidgetTest> {
   final ValueNotifier<bool> isClicking = ValueNotifier<bool>(false);
 
   @override
@@ -37,6 +43,8 @@ class _Button3DState extends State<Button3D> {
         clipBehavior: Clip.none,
         children: [
           Container(
+            width: widget.width,
+            height: widget.height,
             padding: widget.padding,
             decoration: BoxDecoration(
               color: widget.backgroundColor,
@@ -49,8 +57,10 @@ class _Button3DState extends State<Button3D> {
             builder: (context, value, child) {
               return AnimatedPositioned(
                 duration: const Duration(milliseconds: 50),
-                top: value ? 0 : -4,
+                top: value ? 0 : (widget.elevation * -1),
                 child: Container(
+                  width: widget.width,
+                  height: widget.height,
                   padding: widget.padding,
                   decoration: BoxDecoration(
                     borderRadius: widget.borderRadius,

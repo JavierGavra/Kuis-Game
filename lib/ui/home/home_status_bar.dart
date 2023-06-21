@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kuis_game/common/color.dart';
-import 'package:kuis_game/ui/widget/text_style.dart';
+import 'package:kuis_game/config/theme/color.dart';
+import 'package:kuis_game/utils/widget/text_style.dart';
 
 class HomeStatusBar extends StatelessWidget {
   const HomeStatusBar({super.key, required this.poin, required this.nyawa});
