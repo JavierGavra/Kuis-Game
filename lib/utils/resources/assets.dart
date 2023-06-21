@@ -13,6 +13,7 @@ class LocalSvg {
   static const String profil4 = "assets/vectors/profil4.svg";
   static const String profil5 = "assets/vectors/profil5.svg";
   static const String profil6 = "assets/vectors/profil6.svg";
+  static const String iconBack = "assets/vectors/icon_back.svg";
 }
 
 class LocalSounds {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kuis_game/common/color.dart';
+import 'package:kuis_game/config/theme/color.dart';
 
 class AppTheme {
   static ThemeData getTheme() {

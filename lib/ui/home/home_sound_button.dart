@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kuis_game/common/color.dart';
-import 'package:kuis_game/ui/widget/button_3d.dart';
+import 'package:kuis_game/config/theme/color.dart';
+import 'package:kuis_game/utils/widget/button_3d.dart';
 
 class HomeSoundButton extends StatefulWidget {
   const HomeSoundButton({super.key});

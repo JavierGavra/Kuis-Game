@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:kuis_game/common/asset.dart';
-import 'package:kuis_game/common/color.dart';
+import 'package:kuis_game/ui/level/level_page.dart';
+import 'package:kuis_game/utils/navigate/navigate.dart';
+import 'package:kuis_game/utils/resources/assets.dart';
+import 'package:kuis_game/config/theme/color.dart';
 import 'package:kuis_game/ui/home/home_sound_button.dart';
 import 'package:kuis_game/ui/home/home_status_bar.dart';
 import 'package:kuis_game/ui/home/home_menu_button.dart';
-import 'package:kuis_game/ui/widget/text_style.dart';
+import 'package:kuis_game/utils/widget/text_style.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -76,12 +78,12 @@ class HomePage extends StatelessWidget {
                           HomeMenuButton(
                             imageUrl: LocalImages.kategoriBuah,
                             title: 'Tebak Nama Buah',
-                            onTap: () {},
+                            onTap: () => Navigate.push(context, const LevelPage(kategori: 'buah')),
                           ),
                           HomeMenuButton(
                             imageUrl: LocalImages.kategoriHewan,
                             title: 'Tebak Nama Hewan',
-                            onTap: () {},
+                            onTap: () => Navigate.push(context, const LevelPage(kategori: 'hewan')),
                           ),
                         ],
                       ),
@@ -91,13 +93,14 @@ class HomePage extends StatelessWidget {
                         children: [
                           HomeMenuButton(
                             imageUrl: LocalImages.kategoriTransportasi,
-                            title: 'Tebak Nama Transportasi',
-                            onTap: () {},
+                            title: 'Tebak Nama Kendaraan',
+                            onTap: () =>
+                                Navigate.push(context, const LevelPage(kategori: 'kendaraan')),
                           ),
                           HomeMenuButton(
                             imageUrl: LocalImages.kategoriLagu,
                             title: 'Tebak Nama Lagu',
-                            onTap: () {},
+                            onTap: () => Navigate.push(context, const LevelPage(kategori: 'lagu')),
                           ),
                         ],
                       )

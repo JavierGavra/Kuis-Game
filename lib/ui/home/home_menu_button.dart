@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kuis_game/common/color.dart';
-import 'package:kuis_game/ui/widget/button_3d.dart';
-import 'package:kuis_game/ui/widget/text_style.dart';
+import 'package:kuis_game/config/theme/color.dart';
+import 'package:kuis_game/utils/widget/button_3d.dart';
+import 'package:kuis_game/utils/widget/text_style.dart';
 
 class HomeMenuButton extends StatelessWidget {
   HomeMenuButton({super.key, required this.imageUrl, required this.title, required this.onTap});
