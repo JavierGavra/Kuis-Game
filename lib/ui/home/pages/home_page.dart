@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:kuis_game/ui/level/level_page.dart';
+import 'package:kuis_game/ui/level/pages/level_page.dart';
 import 'package:kuis_game/utils/navigate/navigate.dart';
 import 'package:kuis_game/utils/resources/assets.dart';
 import 'package:kuis_game/config/theme/color.dart';
-import 'package:kuis_game/ui/home/home_sound_button.dart';
-import 'package:kuis_game/ui/home/home_status_bar.dart';
-import 'package:kuis_game/ui/home/home_menu_button.dart';
+import 'package:kuis_game/ui/home/widgets/home_sound_button.dart';
+import 'package:kuis_game/ui/home/widgets/home_status_bar.dart';
+import 'package:kuis_game/ui/home/widgets/home_menu_button.dart';
 import 'package:kuis_game/utils/widget/text_style.dart';
 
 class HomePage extends StatelessWidget {
