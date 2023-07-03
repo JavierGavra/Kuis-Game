@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kuis_game/config/theme/color.dart';
+import 'package:kuis_game/model/user_model.dart';
+import 'package:kuis_game/service/user_local_database.dart';
 import 'package:kuis_game/ui/home/pages/home_page.dart';
 import 'package:kuis_game/ui/register/widget/avatar_popup_dialog.dart';
 import 'package:kuis_game/utils/navigate/navigate.dart';
+import 'package:kuis_game/utils/validator/validator.dart';
 import 'package:kuis_game/utils/widget/button_3d.dart';
+import 'package:kuis_game/utils/widget/custom_text_field.dart';
 import 'package:kuis_game/utils/widget/text_style.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -15,12 +19,15 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  final TextEditingController _textController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
   final ValueNotifier<String?> imageProfil = ValueNotifier(null);
-  final _textFieldBorder = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(20),
-    borderSide: const BorderSide(width: 5, color: Color(0x51FFFFFF)),
-  );
+  String? _isNamaError;
+
+  @override
+  void dispose() {
+    super.dispose();
+    _usernameController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -84,32 +91,28 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
             ),
             const SizedBox(height: 35),
-            TextField(
-              controller: _textController,
-              maxLength: 15,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
-                color: AppColor.white,
-                decorationColor: AppColor.white,
-              ),
-              cursorColor: AppColor.white,
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: const Color(0x28D9D9D9),
-                counterText: "",
-                contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 20),
-                border: _textFieldBorder,
-                enabledBorder: _textFieldBorder,
-                focusedBorder: _textFieldBorder,
-              ),
+            CustomTextField(
+              controller: _usernameController,
+              hintText: 'Nama',
+              errorText: _isNamaError,
             ),
             const Spacer(),
             Button3D(
               onTap: () {
-                print(_textController.text);
-                Navigate.pushAndRemove(context, const HomePage());
+                setState(() {
+                  _isNamaError = Validator.validateNama(_usernameController.text);
+                  if (_isNamaError == null && imageProfil.value != null) {
+                    UserModel user = UserModel(
+                      username: _usernameController.text,
+                      imagePath: imageProfil.value,
+                      level: 1,
+                      point: 100,
+                      nyawa: 5,
+                    );
+                    UserLocalDatabase.instance.insert(user);
+                    Navigate.pushAndRemove(context, const HomePage());
+                  }
+                });
               },
               elevation: 5,
               height: 50,
